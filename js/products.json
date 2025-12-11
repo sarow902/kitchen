@@ -1,0 +1,24 @@
+{
+    "products": [
+        {
+            "name": "Grilled Fish",
+            "name_ar": "سمك مشوي",
+            "price": 100,
+            "image": "./images/defaultProduct.jpg",
+            "nutritions": "200 cal",
+            "nutritions_ar": "سعر حراري 200",
+            "details": "Delicious grilled fish with herbs and spices.",
+            "details_ar": "سمك مشوي لذيذ مع الأعشاب والتوابل."
+        },
+        {
+            "name": "Grilled Lamb Steak",
+            "name_ar": "لحم ضانى مشوى",
+            "price": 180,
+            "image": "./images/defaultProduct2.jpg",
+            "nutritions": "380 cal",
+            "nutritions_ar": "سعر حراري 380",
+            "details": "Delicious grilled lamb steak with potatoes.",
+            "details_ar": "لحم ضانى مشوي لذيذ مع البطاطس."
+        }
+    ]
+}

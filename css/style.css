@@ -1,0 +1,314 @@
+:root {
+  --accentColor: rgb(187 24 25);
+  --gradientStart: rgb(242,226,183);
+  --gradientEnd: rgb(193,179,145);
+  --accentColor2: rgb(255, 125, 0);
+  --disabledColor: rgb(200, 200, 200);
+}
+
+/* All items */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  /*border: 1px solid yellow;*/
+
+}
+
+/* Hyperlinks */
+a { 
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--accentColor);
+}
+
+/* View is the same size as the browser window */
+html, body, #firefliesCanvas {
+  position: absolute;
+  top: 0; left:0;
+  width: 100dvw; max-width: 100dvw; height: 100dvh; max-height: 100dvh;
+  scrollbar-width: none;
+}
+
+#firefliesCanvas { z-index: -1; }
+
+body {
+  font-family: Georgia, serif;
+  font-feature-settings: normal;
+  line-height: 1.5;
+
+  background: white;
+  transition: background 2s ease-in-out;
+}
+
+#title{
+  position: absolute;
+  top: 50dvh;
+  left: 50dvw;
+
+  font-weight: lighter;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--accentColor);
+}
+
+#subtitle{
+  position: absolute;
+  top: calc(50dvh + 2rem);
+  left: 50dvw;
+
+  font-weight: lighter;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--accentColor);
+}
+
+#languageToggle{
+  visibility: hidden;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.switch {
+  position: relative;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 4.4rem;
+  height: 2.4rem;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1.9rem;
+  background-color: var(--disabledColor);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.9rem;
+  width: 1.9rem;
+  left: 0.25rem;
+  bottom: 0.25rem;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--accentColor);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(2.0rem);
+  -ms-transform: translateX(2.0rem);
+  transform: translateX(2.0rem);
+}
+
+#langCheckbox + .slider:before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--accentColor);
+  font-weight: bolder;
+}
+
+#langCheckbox:not(:checked) + .slider:before { content: "Ar"; }
+#langCheckbox:checked + .slider:before { content: "En"; }
+
+#logo {
+  position: absolute;
+  height: 8rem;
+  width: 18rem;
+  top: calc(70dvh);
+  left: calc(50dvw - 9rem);
+  visibility: hidden;
+}
+
+.inlineSVG {
+  width: 100%; height: 100%;
+  /* Control the color of the svg's path */
+  path{ fill: var(--accentColor); stroke: var(--accentColor); }
+}
+
+.shareButton, .installButton {
+  visibility: hidden;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.shareButton, .installButton { position: fixed; top: calc(65dvh - 1.25rem); }
+.shareButton { left: calc(50dvw - 10rem); }
+.installButton { left: calc(50dvw + 7.5rem); display: none; }
+
+.inlineSVG:hover {
+  path{ fill: var(--accentColor2); stroke: var(--accentColor2); }
+  transform: scale(1.25);
+}
+
+#startButton{
+  position: fixed;
+  width: 5.0rem;
+  height: 5.0rem;
+  top: calc(65dvh - 2.5rem);
+  left: calc(50dvw - 2.5rem);
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1;
+  cursor: pointer;
+
+  visibility: hidden;
+
+  background-color: white;
+  color: var(--accentColor);
+  border: 3px solid var(--accentColor);
+  font-weight: bolder;
+  font-size: 1.15rem;
+}
+
+#startButton:hover {
+  background-color: var(--accentColor2);
+  color: white;
+  border-color: white;
+  transition: background-color 0.3s, color 0.3s;
+  scale: 1.1;
+}
+
+#socials, #tray{
+  visibility: hidden;
+  position: fixed;
+  bottom: 1dvh;
+  /*width: auto;
+  height: auto;*/
+  display: flex;
+  gap: 1rem;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+#socials{ left: 1dvw; }
+
+#tray{ right: 1dvw; }
+
+.subIcon{
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+#controls{
+  position: fixed;
+  top: 1dvh;
+  right: 1dvw;
+  /*width: auto;
+  height: auto;*/
+  display: flex;
+  gap: 1rem;
+
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+.control{
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+#items {
+  display: none;
+  width: calc(100dvw - 1rem);
+  height: calc(96dvh - 6rem);
+  float: left;
+  flex-wrap: wrap;
+  margin: calc(2dvh + 3rem) 0.5rem calc(2dvh + 3rem) 0.5rem;
+  overflow: auto;
+}
+
+.item {
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	margin: 0.25rem;
+	padding: 0.50rem;
+	height: auto;
+	background-color:  white;
+	border-radius: 0.5rem;
+	width: max(22rem, calc(25% - 1rem));
+	.preview {
+		position: relative;
+		img { height: auto; width: 85%; z-index: -1; }
+		img:hover { transform: scale(1.05) rotate(60deg); transition: 1.5s; }
+		.buyLeftSide {
+      z-index: 2;
+			display: none;
+			border-width: 4px;
+      border-color: var(--accentColor2);
+			border-right-style: solid;
+			border-bottom-style: solid;
+			background-color: transperent;
+			position: absolute;
+			right: calc(4rem - 6px); bottom: -4px;
+			width: 2.0rem; height: calc(0.5rem + 8px); border-radius: 0 0 2.0rem 0;
+		}
+		.buy {
+      z-index: 2;
+			display: none;
+			border: 4px solid var(--accentColor2);
+			background-color: white;
+			position: absolute;
+			right: 0; bottom: calc(-2rem - 0px);
+			width: 4rem; height: 4rem; border-radius: 50%;
+      .cart { width: 60%; height: 60% }
+		}
+	}
+}
+
+.item:hover {
+  border: 1px solid var(--accentColor2);
+	.buy, .buyLeftSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+	.description { border-radius: 0.5rem 0 0.5rem 0.5rem; }
+}
+
+.name, .description, .nutritions {
+  padding: 0.5rem;
+  background-color: var(--accentColor2);
+  z-index: 1;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.description {
+  border: 4px solid var(--accentColor2);
+  border-radius: 0.5rem;
+  .details {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: white;
+  }
+} 

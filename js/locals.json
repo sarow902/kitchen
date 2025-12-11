@@ -1,0 +1,27 @@
+{
+    "ar" : {
+        "title": "مطبخ سارة",
+        "subtitle": "وجبات صحية لذيذة!",
+        "refresh": "حدث الصفحة",
+        "toggleFullscreen": "تبديل ملء الشاشة",
+        "share": "شارك",
+        "install": "حمل التطبيق",
+        "facebook": "فيسبوك",
+        "instagram" : "انستجرام",
+        "whatsapp": "واتساب",
+        "start": "الدخول"
+    },
+
+    "en" : {
+        "title": "SARA'S KITCHEN",
+        "subtitle": "DELICIOUS HEALTHY RECIPES!",
+        "refresh": "Refresh",
+        "toggleFullscreen": "Toggle Fullscreen",
+        "share": "Share",
+        "install": "Install",
+        "facebook": "Facebook",
+        "instagram" : "Instagram",
+        "whatsapp": "Whatsapp",
+        "start": "START"
+    }
+}

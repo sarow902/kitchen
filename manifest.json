@@ -1,0 +1,18 @@
+{
+    "lang": "en-us",
+    "version": "1.0.0",
+    "name": "Sara's Kitchen",
+    "description": "Healthy Meals",
+    "start_url": "./",
+    "orientation": "any",
+    "display": "standalone",
+    "display_override": ["fullscreen", "minimal-ui"],
+    "author": "Usama Taha",
+    "license": "MIT",
+    "icons": [
+        {
+            "src": "images/fav_icon.svg",
+            "sizes": "512x512"
+        }
+    ]
+}
