@@ -18,7 +18,7 @@ document.onreadystatechange = function () {
                     url: "https://sarakitchen.netlify.app/"
                 };
                 this.updated = window.localStorage.getItem("updated");
-                this.language = window.localStorage.getItem("language");
+                this.language = (window.localStorage.getItem("language") || "en");
                 this.root = document.querySelector(":root");
                 this.gradientStart = window.getComputedStyle(this.root).getPropertyValue("--gradientStart");
                 this.gradientEnd = window.getComputedStyle(this.root).getPropertyValue("--gradientEnd");
@@ -359,5 +359,6 @@ async function populateProducts(p, productsFilePath = "./js/products.json") {
         // Apply translation
         field.innerHTML = translation;
     });
+
 
 }
