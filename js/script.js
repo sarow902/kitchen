@@ -15,7 +15,7 @@ document.onreadystatechange = function () {
                 this.shareSiteData = {
                     title: "Sara's Healthy Meals Kitchen",
                     text: "Check out this amazing Healthy Kitchen Meals web app!",
-                    url: "https://sarakitchen.netlify.app/"
+                    url: "https://sarahealthymeals.netlify.app/"
                 };
                 this.updated = window.localStorage.getItem("updated");
                 this.language = (window.localStorage.getItem("language") || "en");
@@ -362,4 +362,5 @@ async function populateProducts(p, productsFilePath = "./js/products.json") {
 
 
 }
+
 
